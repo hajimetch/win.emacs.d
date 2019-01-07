@@ -97,7 +97,7 @@
   (set btn (cons (cons "" nil) (cons "" nil))))
 
 ;; buffer-list
-(defun my-tabbar-buffer-list ()
+(defun my/tabbar-buffer-list ()
   (delq nil
         (mapcar #'(lambda (b)
                     (cond
@@ -109,7 +109,7 @@
                      ((equal "*eww*" (buffer-name b)) b)
                      ((char-equal ?* (aref (buffer-name b) 0)) nil)
                      ((buffer-live-p b) b))) (buffer-list))))
-(setq tabbar-buffer-list-function 'my-tabbar-buffer-list)
+(setq tabbar-buffer-list-function 'my/tabbar-buffer-list)
 
 ;; tabbar 外観変更
 (set-face-attribute
@@ -140,14 +140,14 @@
 (require 'cl-lib)
 (require 'color)
 
-(defun rainbow-delimiters-using-stronger-colors ()
+(defun my/rainbow-delimiters-using-stronger-colors ()
   (interactive)
   (cl-loop
    for index from 1 to rainbow-delimiters-max-face-count
    do
    (let ((face (intern (format "rainbow-delimiters-depth-%d-face" index))))
     (cl-callf color-saturate-name (face-foreground face) 30))))
-(add-hook 'emacs-startup-hook 'rainbow-delimiters-using-stronger-colors)
+(add-hook 'emacs-startup-hook 'my/rainbow-delimiters-using-stronger-colors)
 
 
 ;;; モードライン
@@ -209,13 +209,13 @@
 (defvar global-hl-line-timer-exclude-modes '(todotxt-mode))
 
 ;; ハイライトに0.03秒の猶予を与え、カーソル移動を軽くする
-(defun global-hl-line-timer-function ()
+(defun my/global-hl-line-timer-function ()
   (unless (memq major-mode global-hl-line-timer-exclude-modes)
     (global-hl-line-unhighlight-all)
     (let ((global-hl-line-mode t))
       (global-hl-line-highlight))))
 (setq global-hl-line-timer
-      (run-with-idle-timer 0.03 t 'global-hl-line-timer-function))
+      (run-with-idle-timer 0.03 t 'my/global-hl-line-timer-function))
 
 ;; カーソルの点滅を止める
 (blink-cursor-mode 0)
@@ -269,8 +269,8 @@
 
 
 ;;; Misc
-;; visible-bell
-(setq visible-bell t)
+;; アラートのビープ音を消す
+(setq ring-bell-function 'ignore)
 
 ;; png, jpg などのファイルを画像として表示
 (setq auto-image-file-mode t)

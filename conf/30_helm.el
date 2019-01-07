@@ -72,7 +72,7 @@
 
 
 ;;; helm-find-file から browse-project を呼び出す
-(defun helm-ff-run-browse-project-with-prefix-arg ()
+(defun my/helm-ff-run-browse-project ()
   (interactive)
   (setq current-prefix-arg '(4))
   (call-interactively 'helm-ff-run-browse-project))

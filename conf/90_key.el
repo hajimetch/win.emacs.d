@@ -3,7 +3,7 @@
 
 
 ;;; ddskk
-(bind-key "<M-f11>"        'skk-j-mode-set-henkan)
+(bind-key "<M-f11>"        'my/skk-set-henkan)
 (bind-key "<M-f12>"        'skk-latin-mode)
 (bind-keys :map skk-j-mode-map
            ("S-SPC" .      skk-previous-candidate)
@@ -28,12 +28,13 @@
 (bind-keys :map helm-map
            ("TAB" .        helm-execute-persistent-action)
            ("C-z" .        helm-select-action)
-           ("M-b" .        helm-ff-run-browse-project-with-prefix-arg))
+           ("M-b" .        my/helm-ff-run-browse-project))
 
 
 ;;; Projectile
 (bind-keys :map projectile-mode-map
-           ("C-q" .        projectile-command-map))
+           ("C-q" .        projectile-command-map)
+           ("C-q C-q" .    helm-projectile))
 
 
 ;;; org-mode
@@ -131,7 +132,7 @@
 (bind-key "M-k"            'kill-this-buffer)               ; バッファを閉じる
 (bind-key "C-c j"          'open-junk-file)                 ; junk-file作成
 (bind-key "C-c p"          'ps-print-region)                ; PDF作成
-(bind-key "C-c r"          'revert-buffer-no-confirm)       ; バッファ更新
+(bind-key "C-c r"          'my/revert-buffer)               ; バッファ更新
 (bind-key "C-c s"          'whitespace-cleanup)             ; 不要な空白を削除
 (bind-key "C-c ;"          'comment-dwim)                   ; コメントアウト
 (bind-key "C-c C-,"        'howm-menu)                      ; howmメニュー
