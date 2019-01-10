@@ -11,6 +11,9 @@
 ;;; 文字コード
 (set-language-environment "Japanese")
 
+;; デフォルトの文字コード
+(set-default-coding-systems 'utf-8-unix)
+
 ;; テキストファイル／新規バッファの文字コード
 (prefer-coding-system 'utf-8-unix)
 
@@ -25,9 +28,6 @@
 
 ;; サブプロセスのデフォルト文字コード
 (setq default-process-coding-system '(undecided-dos . utf-8-unix))
-
-;; デフォルトの文字コード
-(set-default-coding-systems 'utf-8-unix)
 
 ;; 環境依存文字 文字化け対応
 (set-charset-priority 'ascii 'japanese-jisx0208 'latin-jisx0201
