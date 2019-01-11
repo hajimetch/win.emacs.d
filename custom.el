@@ -12,7 +12,7 @@
  '(mozc-leim-title "あ")
  '(package-selected-packages
    (quote
-    (helm-projectile projectile magit ddskk mozc-im mozc json-mode rotate howm undohist real-auto-save recentf-ext volatile-highlights tangotango-theme company-jedi company-quickhelp company markdown-mode open-junk-file anzu helm-swoop term-run shell-pop shell-toggle js2-mode fill-column-indicator quickrun py-yapf flycheck init-loader which-key bind-key tabbar smartparens rainbow-delimiters multiple-cursors migemo hungry-delete helm-c-yasnippet helm-ag expand-region)))
+    (ssh-agency helm-projectile projectile magit ddskk mozc-im mozc json-mode rotate howm undohist real-auto-save recentf-ext volatile-highlights tangotango-theme company-jedi company-quickhelp company markdown-mode open-junk-file anzu helm-swoop term-run shell-pop shell-toggle js2-mode fill-column-indicator quickrun py-yapf flycheck init-loader which-key bind-key tabbar smartparens rainbow-delimiters multiple-cursors migemo hungry-delete helm-c-yasnippet helm-ag expand-region)))
  '(recentf-auto-cleanup (quote never))
  '(shell-pop-default-directory "~/")
  '(shell-pop-full-span t)
@@ -23,7 +23,7 @@
        (eshell shell-pop-term-shell)))))
  '(shell-pop-universal-key "C-c t")
  '(shell-pop-window-position "bottom")
- '(shell-pop-window-size 30))
+ '(shell-pop-window-size 50))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

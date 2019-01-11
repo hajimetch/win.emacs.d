@@ -273,3 +273,6 @@
 
 ;; 読み取り専用モードで開く
 (add-hook 'find-file-hooks 'view-mode)
+
+;; Git SSH Passphrase を入力するプログラムを指定
+(setenv "GIT_ASKPASS" "git-gui--askpass")
