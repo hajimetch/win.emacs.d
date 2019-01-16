@@ -198,6 +198,7 @@
 ;;; undohist
 (require 'undohist)
 (undohist-initialize)
+(setq undohist-ignored-files '("COMMIT_EDITMSG"))
 
 ;; Windows に対応
 (defun make-undohist-file-name (file)
