@@ -13,14 +13,16 @@
 
 (unless (eq (server-running-p) 't)
   (server-start)
+
   (defun iconify-emacs-when-server-is-done ()
     (unless server-clients (iconify-frame)))
+  (add-hook 'after-init-hook 'iconify-emacs-when-server-is-done) ; minimize when start
 
   (global-set-key (kbd "C-x C-c") 'server-edit) ; do not exit when C-x C-c
-  (defalias 'exit 'save-buffers-kill-emacs)     ; exit by M-x exit
-  (add-hook 'after-init-hook 'iconify-emacs-when-server-is-done) ; minimize when start
-  (setq confirm-kill-emacs 'yes-or-no-p) ; yes-or-no when exit
+  (setq confirm-kill-emacs 'yes-or-no-p)        ; yes-or-no when exit
   )
+
+(defalias 'exit 'save-buffers-kill-emacs) ; exit by M-x exit
 
 
 ;;; function to add load-path (including sub-directory)
