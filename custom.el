@@ -12,7 +12,7 @@
  '(mozc-leim-title "あ")
  '(package-selected-packages
    (quote
-    (ssh-agency helm-projectile projectile magit ddskk mozc-im mozc json-mode rotate howm undohist real-auto-save recentf-ext volatile-highlights tangotango-theme company-jedi company-quickhelp company markdown-mode open-junk-file anzu helm-swoop term-run shell-pop shell-toggle js2-mode fill-column-indicator quickrun py-yapf flycheck init-loader which-key bind-key tabbar smartparens rainbow-delimiters multiple-cursors migemo hungry-delete helm-c-yasnippet helm-ag expand-region)))
+    (elscreen ssh-agency helm-projectile projectile magit ddskk mozc-im mozc json-mode rotate howm undohist real-auto-save recentf-ext volatile-highlights tangotango-theme company-jedi company-quickhelp company markdown-mode open-junk-file anzu helm-swoop term-run shell-pop shell-toggle js2-mode fill-column-indicator quickrun py-yapf flycheck init-loader which-key bind-key tabbar smartparens rainbow-delimiters multiple-cursors migemo hungry-delete helm-c-yasnippet helm-ag expand-region)))
  '(recentf-auto-cleanup (quote never))
  '(shell-pop-default-directory "~/")
  '(shell-pop-full-span t)

@@ -113,9 +113,8 @@
 (bind-key "M-0"            '(lambda() (interactive) (text-scale-set 0)))
 
 
-;;; Switch Tab
-(bind-key "M-]"            'tabbar-forward-tab)
-(bind-key "M-["            'tabbar-backward-tab)
+;;; ElScreen
+(bind-key "C-z"            'iconify-or-deiconify-frame elscreen-map)
 
 
 ;;; Move Windows
