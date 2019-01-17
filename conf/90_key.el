@@ -34,8 +34,7 @@
 
 ;;; Projectile
 (bind-keys :map projectile-mode-map
-           ("C-q" .        projectile-command-map)
-           ("C-q C-q" .    helm-projectile))
+           ("C-q" .        projectile-command-map))
 
 
 ;;; org-mode
