@@ -114,6 +114,7 @@
 
 
 ;;; ElScreen
+(bind-key "C-z h"          'helm-elscreen)
 (bind-key "C-z"            'iconify-or-deiconify-frame elscreen-map)
 
 
