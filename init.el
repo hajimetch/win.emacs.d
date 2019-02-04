@@ -19,7 +19,6 @@
   (add-hook 'after-init-hook 'iconify-emacs-when-server-is-done) ; minimize when start
 
   (global-set-key (kbd "C-x C-c") 'server-edit) ; do not exit when C-x C-c
-  (setq confirm-kill-emacs 'yes-or-no-p)        ; yes-or-no when exit
   )
 
 (defalias 'exit 'save-buffers-kill-emacs) ; exit by M-x exit
