@@ -16,8 +16,8 @@
 (setq initial-frame-alist default-frame-alist)
 
 ;; フレームタイトル
-(setq frame-title-format(setq frame-title-format
-      '("Emacs " emacs-version (buffer-file-name " - %f"))))
+(setq frame-title-format
+      '("Emacs " emacs-version (buffer-file-name " - %f")))
 
 
 ;;; 行番号
@@ -113,8 +113,6 @@
  `(
    ""
    (:eval (my/count-lines-and-chars))
-   w32-ime-mode-line-state-indicator
-   " "
    mode-line-mule-info
    mode-line-modified
    mode-line-frame-identification

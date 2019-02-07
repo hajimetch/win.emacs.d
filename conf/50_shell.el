@@ -13,13 +13,13 @@
 
 ;; written by Stefan Reichoer <reichoer@web.de>
 (defun eshell/less (&rest args)
-  "Invoke `view-file' on teh file.
+  "Invoke `view-file' on the file.
 \"less +42 foo\" also goes to line 42 in the buffer."
   (interactive)
   (while args
     (if (string-match "\\`\\+\\([0-9]+\\)\\'" (car args))
         (let* ((line (string-to-number (match-string 1 (pop args))))
-               (file (opp args)))
+               (file (pop args)))
           (view-file file)
           (goto-line line))
       (view-file (pop args)))))

@@ -75,5 +75,6 @@
 ;; タスク名をタイトルバーに表示
 (setq org-clock-clocked-in-display 'frame-title)
 
+
 ;;; Archive ファイルを datetree で管理
 (setq org-archive-location "//Mac/Dropbox/Emacs/org/archive.org::datetree/")
