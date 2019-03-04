@@ -12,7 +12,7 @@
                 (tool-bar-lines       . nil) ; ツールバー
                 (vertical-scroll-bars . nil) ; スクロールバー
                 (alpha                . 95 ) ; 透明度
-                ) default-frame-alist) )
+                ) default-frame-alist))
 (setq initial-frame-alist default-frame-alist)
 
 ;; フレームタイトル
@@ -219,12 +219,18 @@
 (setq display-buffer-function 'popwin:display-buffer)
 (setq popwin:special-display-config
       '(("*complitation*" :noselect t)
-        ("helm" :regexp t :height 0.4)))
+        ("helm" :regexp t :height 0.4)
+        ("Helm" :regexp t :height 0.4)))
 
 
 ;;; ダイアログボックスを抑制する
 (defalias 'message-box 'message)
 (setq use-dialog-box nil)
+
+
+;;; rotete-window でカーソルを元のウィンドウに残す
+(defadvice rotate-window (after rotate-cursor activate)
+  (other-window 1))
 
 
 ;;; Misc
