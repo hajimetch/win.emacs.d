@@ -215,12 +215,18 @@
 
 ;;; popwin
 (require 'popwin)
-(setq helm-display-function #'display-buffer)
+(popwin-mode 1)
+(setq pop-up-windows t)
 (setq display-buffer-function 'popwin:display-buffer)
 (setq popwin:special-display-config
-      '(("*complitation*" :noselect t)
+      '(("*Completions*"  :height 0.4)
+        ("*complitation*" :height 0.4 :noselect t)
+        ("*Help*" :height 0.4 :noselect t :stick t)
         ("helm" :regexp t :height 0.4)
         ("Helm" :regexp t :height 0.4)))
+
+;; helm を対応させる
+(setq helm-display-function #'display-buffer)
 
 
 ;;; ダイアログボックスを抑制する
