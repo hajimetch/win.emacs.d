@@ -7,6 +7,12 @@
 ;;; desktop-save-mode
 (desktop-save-mode t)
 
+;; load theme after restoring desktop
+(add-to-list 'desktop-globals-to-save 'custom-enabled-themes)
+(defun desktop-load-theme () "load custom theme" (interactive)
+  (dolist (th custom-enabled-themes) (load-theme th)))
+(add-hook 'desktop-after-read-hook 'desktop-load-theme)
+
 
 ;;; 文字コード
 (set-language-environment "Japanese")
@@ -152,7 +158,7 @@
 
 ;;; 自動保存のリスト(~/.emacs.d/auto-save-list/.saves-xxx)
 ;; 作成する
-(setq auto-save-list-file-prefix "~/Dropbox/Emacs/backups/win10/saves-")
+(setq auto-save-list-file-prefix "//Mac/Dropbox/Emacs/backups/win10/saves-")
 
 
 ;;; ロックファイル(.#xxx)
