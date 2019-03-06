@@ -122,16 +122,10 @@
 (which-key-mode t)
 
 
-;;; 自動保存
-(require 'real-auto-save)
-(setq real-auto-save-interval 10)       ; 自動保存間隔
-(add-hook 'find-file-hook 'real-auto-save-mode)
-
-
 ;;; バックアップ(xxx~)
 (setq make-backup-files     t)    ; 自動バックアップの実行有無
 (setq version-control       t)    ; バックアップファイルへの番号付与
-(setq kept-new-versions  2000)    ; 最新バックアップファイルの保持数
+(setq kept-new-versions   100)    ; 最新バックアップファイルの保持数
 (setq kept-old-versions     1)    ; 最古バックアップファイルの保持数
 (setq delete-old-versions   t)    ; バックアップファイル削除の実行有無
 
@@ -144,14 +138,21 @@
 
 
 ;;; 自動保存ファイル(#xxx#)
-;; 作成しない
-(setq auto-save-default   nil)
+;; 作成する
+(setq auto-save-default     t)
+
+;; 保存の間隔
+(setq auto-save-timeout    10)           ; 秒
+(setq auto-save-interval  100)           ; 打鍵
+
+;; 自動保存ファイル(#xxx#)の格納ディレクトリ
+(setq auto-save-file-name-transforms
+      `((".*", (expand-file-name "//Mac/Dropbox/Emacs/backups/win10/") t)))
 
 
 ;;; 自動保存のリスト(~/.emacs.d/auto-save-list/.saves-xxx)
-;; 作成しない
-(setq auto-save-list-file-name   nil)
-(setq auto-save-list-file-prefix nil)
+;; 作成する
+(setq auto-save-list-file-prefix "~/Dropbox/Emacs/backups/win10/saves-")
 
 
 ;;; ロックファイル(.#xxx)
@@ -159,10 +160,13 @@
 (setq create-lockfiles    nil)
 
 
-;;; バッファ再読み込み関数
-(defun my/revert-buffer ()
-    "Revert buffer without confirmation."
-    (interactive) (revert-buffer t t))
+;;; バックアップを作成しないファイルの設定
+(defvar backup-inhibit-file-name-regexp "recentf")
+(defun regexp-backup-enable-predicate (filename)
+  (save-match-data
+    (and (not (string-match backup-inhibit-file-name-regexp filename))
+     (normal-backup-enable-predicate filename))))
+(setq backup-enable-predicate 'regexp-backup-enable-predicate)
 
 
 ;;; recentf 関連
@@ -186,6 +190,12 @@
 ;; 30秒ごとに recentf を保存
 (run-with-idle-timer 30 t '(lambda ()
    (with-suppressed-message (recentf-save-list))))
+
+
+;;; バッファ再読み込み関数
+(defun my/revert-buffer ()
+    "Revert buffer without confirmation."
+    (interactive) (revert-buffer t t))
 
 
 ;;; abbrev file
@@ -271,9 +281,6 @@
 
 ;; ad-handle-definition 対応
 (setq ad-redefinition-action 'accept)
-
-;; 読み取り専用モードで開く
-(add-hook 'find-file-hooks 'view-mode)
 
 ;; Git SSH Passphrase を入力するプログラムを指定
 (setenv "GIT_ASKPASS" "git-gui--askpass")
