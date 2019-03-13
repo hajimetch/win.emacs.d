@@ -3,8 +3,8 @@
 
 
 ;;; ddskk
-(unbind-key "C-J")
-(unbind-key "C-:")
+(bind-key "C-S-j"          'ignore)
+(bind-key "C-:"            'ignore)
 (bind-key "<M-kanji>"      'skk-mode)
 (bind-key "C-x C-j"        'skk-mode)
 (bind-keys :map skk-j-mode-map
