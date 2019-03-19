@@ -89,7 +89,6 @@
 (setq skk-search-katakana 'jisx0201-kana) ; カタカナを変換候補に入れる
 (setq skk-henkan-strict-okuri-precedence t) ; 送り仮名が厳密に正しい候補を優先して表示
 (setq skk-use-auto-enclose-pair-of-region t) ; リージョンを括弧で囲む
-(bind-key "C-j" 'skk-kakutei minibuffer-local-map) ; ミニバッファでは C-j を改行にしない
 (require 'skk-hint)                       ; ヒント
 (add-hook 'skk-load-hook                  ; 自動的に入力モードを切り替え
       (lambda ()
@@ -102,9 +101,10 @@
 
 
 ;;; 個人辞書の自動保存
-(defvar skk-auto-save-jisyo-interval 600)
-(run-with-idle-timer skk-auto-save-jisyo-interval
-                     skk-auto-save-jisyo-interval
+(defvar my/skk-auto-save-jisyo-interval 600
+  "Interval of saving jisyo.")
+(run-with-idle-timer my/skk-auto-save-jisyo-interval
+                     my/skk-auto-save-jisyo-interval
                      'skk-save-jisyo)
 
 
@@ -114,6 +114,7 @@
 
 ;;; 次候補を表示
 (defun my/skk-next-candidate ()
+  "Show next candidate of skk."
   (interactive)
   (cond ((eq skk-henkan-mode 'on)
          (skk-comp-wrapper t))
@@ -124,6 +125,7 @@
 
 ;;; 前候補を表示
 (defun my/skk-previous-candidate ()
+  "Show previous candidate of skk."
   (interactive)
   (cond ((eq skk-henkan-mode 'on)
          (skk-comp-previous t))

@@ -65,14 +65,9 @@
 (helm-projectile-on)
 
 
-;;; helm-find-file に Icon\r を表示しない
-(custom-set-variables
-'(helm-ff-skip-boring-files t)
-'(helm-boring-file-regexp-list '("\Icon.$")))
-
-
 ;;; helm-find-file から browse-project を呼び出す
 (defun my/helm-ff-run-browse-project ()
+  "Call helm-ff-run-browse-project with C-u."
   (interactive)
   (setq current-prefix-arg '(4))
   (call-interactively 'helm-ff-run-browse-project))

@@ -26,6 +26,7 @@
 
 ;; open eshell with current directory
 (defun my/eshell-pop (&optional arg)
+  "Popup eshell and cd to current directory."
   (interactive "P")
   (cond ((equal (buffer-name) "*eshell*")
          (kill-buffer "*eshell*"))
