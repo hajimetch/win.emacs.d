@@ -245,6 +245,11 @@
               undohist-directory)))
 
 
+;;; undo-tree
+(require 'undo-tree)
+(global-undo-tree-mode)
+
+
 ;;; howm
 (require 'howm)
 
@@ -256,6 +261,15 @@
 
 ;; howm-menu の言語を日本語に
 (setq howm-menu-lang 'ja)
+
+;; メモを保存と同時に閉じる
+(defun my/howm-save-buffer-and-kill()
+  "Save howm buffer and exit."
+  (interactive)
+  (when (and (buffer-file-name)
+             (howm-buffer-p))
+    (save-buffer)
+    (kill-buffer nil)))
 
 
 ;;; Programs for Windows を指定

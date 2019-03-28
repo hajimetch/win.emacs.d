@@ -11,7 +11,7 @@
  '(helm-ff-skip-boring-files t)
  '(package-selected-packages
    (quote
-    (helm-descbinds sticky popwin flycheck-pos-tip helm-elscreen elscreen ssh-agency helm-projectile projectile magit ddskk json-mode rotate howm undohist recentf-ext volatile-highlights tangotango-theme company-jedi company-quickhelp company markdown-mode open-junk-file anzu helm-swoop js2-mode fill-column-indicator quickrun py-yapf flycheck init-loader which-key bind-key smartparens rainbow-delimiters multiple-cursors migemo hungry-delete helm-c-yasnippet helm-ag expand-region)))
+    (undo-tree helm-descbinds sticky popwin flycheck-pos-tip helm-elscreen elscreen ssh-agency helm-projectile projectile magit ddskk json-mode rotate howm undohist recentf-ext volatile-highlights tangotango-theme company-jedi company-quickhelp company markdown-mode open-junk-file anzu helm-swoop js2-mode fill-column-indicator quickrun py-yapf flycheck init-loader which-key bind-key smartparens rainbow-delimiters multiple-cursors migemo hungry-delete helm-c-yasnippet helm-ag expand-region)))
  '(recentf-auto-cleanup (quote never)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
