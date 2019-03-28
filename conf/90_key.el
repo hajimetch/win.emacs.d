@@ -26,6 +26,7 @@
 (bind-key "C-c b"          'helm-resume)
 (bind-key "C-c g"          'helm-do-ag)
 (bind-key "C-c i"          'helm-semantic-or-imenu)
+(bind-key "C-c k"          'helm-descbinds)
 (bind-key "C-c y"          'helm-yas-complete)
 (bind-key "C-c C-SPC"      'helm-all-mark-rings)
 (bind-key "C-S-y"          'helm-show-kill-ring)
@@ -76,16 +77,17 @@
 
 
 ;;; isearch
+(bind-key "C-s"            'my/multi-search)
 (bind-keys :map isearch-mode-map
            ("C-d" .        isearch-delete-char)
            ("C-e" .        isearch-edit-string)
+           ("C-u" .        helm-swoop-from-isearch)
            ("C-y" .        isearch-yank-kill)
            ("TAB" .        isearch-yank-word)
            ("C-g" .        (lambda() (interactive) (isearch-done))))
 
 
 ;;; helm-swoop
-(bind-key "M-s"            'helm-swoop)
 (bind-keys :map helm-swoop-map
            ("C-s" .        helm-next-line)
            ("C-r" .        helm-previous-line))
