@@ -14,9 +14,9 @@
 (unless (eq (server-running-p) 't)
   (server-start)
 
-  (defun iconify-emacs-when-server-is-done ()
+  (defun my/iconify-emacs-when-server-is-done ()
     (unless server-clients (iconify-frame)))
-  (add-hook 'after-init-hook 'iconify-emacs-when-server-is-done) ; minimize when start
+  (add-hook 'after-init-hook 'my/iconify-emacs-when-server-is-done) ; minimize when start
 
   (global-set-key (kbd "C-x C-c") 'server-edit) ; do not exit when C-x C-c
   )
@@ -25,7 +25,8 @@
 
 
 ;;; function to add load-path (including sub-directory)
-(defun add-to-load-path (&rest paths)
+(defun my/add-to-load-path (&rest paths)
+  "Function to add load-path including sub-directory."
   (let (path)
     (dolist (path paths paths)
       (let ((default-directory
@@ -35,7 +36,7 @@
                 (normal-top-level-add-subdirs-to-load-path))))))
 
 ;; load-path
-(add-to-load-path "elisp")
+(my/add-to-load-path "elisp")
 
 
 ;;; custom-file
