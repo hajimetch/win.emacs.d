@@ -7,6 +7,7 @@
 (bind-key "C-:"            'ignore)
 (bind-key "<M-kanji>"      'skk-mode)
 (bind-key "C-x C-j"        'skk-mode)
+(bind-key "C-x j"          'skk-auto-fill-mode)
 (bind-keys :map skk-j-mode-map
            ("S-SPC" .      skk-previous-candidate)
            ("C-n" .        my/skk-next-candidate)
