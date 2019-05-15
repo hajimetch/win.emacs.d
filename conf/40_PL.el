@@ -48,3 +48,7 @@
 
 ;;; php-mode
 (setq php-manual-url 'ja)
+
+
+;;; gtags
+(setq helm-gtags-auto-update t)

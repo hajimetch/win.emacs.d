@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        hungry-delete-forward
         ))
 
 (setq mc/cmds-to-run-once
