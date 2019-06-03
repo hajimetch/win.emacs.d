@@ -105,3 +105,35 @@
 
 ;;; Archive ファイルを datetree で管理
 (setq org-archive-location "//Mac/Dropbox/Emacs/org/archive.org::datetree/")
+
+
+;;; howm
+(setq howm-view-title-header "*")
+(setq howm-prefix (kbd "C-x ,"))
+(require 'howm)
+
+;; ファイルパス
+(setq howm-directory "~/Dropbox/Emacs/howm/")
+(setq howm-keyword-file (concat howm-directory ".howm-keys"))
+(setq howm-history-file (concat howm-directory ".howm-history"))
+(setq howm-menu-file (concat howm-directory "menu.txt"))
+
+;; howm-menu の言語を日本語に
+(setq howm-menu-lang 'ja)
+
+;; メモを保存と同時に閉じる
+(defun my/howm-save-buffer-and-kill()
+  "Save howm buffer and exit."
+  (interactive)
+  (when (and (buffer-file-name)
+             (howm-buffer-p))
+    (save-buffer)
+    (kill-buffer nil)))
+
+;; メモを保存せずに閉じる
+(defun my/howm-kill-buffer()
+  "Save howm buffer and exit."
+  (interactive)
+  (when (and (buffer-file-name)
+             (howm-buffer-p))
+    (kill-buffer nil)))

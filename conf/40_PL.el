@@ -55,5 +55,9 @@
 (add-hook 'emacs-lisp-mode-hook 'helm-gtags-mode)
 
 
+;;; Git SSH Passphrase を入力するプログラムを指定
+(setenv "GIT_ASKPASS" "git-gui--askpass")
+
+
 ;;; git-gutter
 (global-git-gutter-mode t)
