@@ -1,4 +1,14 @@
+(unless (locate-library "skk")
+  (package-install 'ddskk))
 (use-package skk
+  :init
+  (setq skk-user-directory "//Mac/Dropbox/Emacs/ddskk/")
+                                        ; 設定ファイルパス
+  (use-package skk-study)               ; 変換学習機能
+  (use-package skk-hint)                ; ヒント
+  (use-package context-skk)             ; 自動的にモード切り替え
+  (use-package sticky :ensure)          ; skk-sticky-keyに必要
+
   :bind
   (("C-S-j"         . ignore)
    ("C-:"           . ignore)
@@ -26,9 +36,6 @@
    (isearch-mode-end . skk-isearch-mode-cleanup))
 
   :commands skk-wrap-newline-command
-
-  :init (setq skk-user-directory "//Mac/Dropbox/Emacs/ddskk/")
-                                        ; 設定ファイルパス
 
   :custom
   ;; 全般
@@ -82,10 +89,6 @@
    ((t (:foreground "White" :background "LightGoldenrod4" :bold nil))))
 
   :config
-  ;; 従属パッケージ
-  (use-package skk-study)               ; 変換学習機能
-  (use-package skk-hint)                ; ヒント
-  (use-package context-skk)             ; 自動的にモード切り替え
   ;; 個人辞書の自動保存
   (defvar my/skk-auto-save-jisyo-interval 600
     "Interval of saving jisyo.")
