@@ -1,5 +1,6 @@
 ;;; PostScript Option
 (use-package ps-mule
+  :bind ("M-p"      . ps-print-region)
   :custom
   (ps-print-color-p     t)
   (ps-paper-type        'a4)            ; paper size
