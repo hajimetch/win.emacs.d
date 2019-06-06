@@ -8,7 +8,7 @@
    ("C-c i"         . helm-semantic-or-imenu)
    ("C-c w"         . helm-google-suggest)
    ("C-c C-SPC"     . helm-all-mark-rings)
-   ("C-c <f1>"      . helm-info)
+   ("C-c <f1>"      . helm-apropos)
    ("C-M-y"         . helm-show-kill-ring)
    :map helm-map
    ("TAB"           . helm-execute-persistent-action)
@@ -120,27 +120,3 @@
               (helm-do-ag (projectile-project-root) (car (projectile-parse-dirconfig-file))))
           (error "You're not in a project"))
       (error "helm-ag not available"))))
-
-
-;;; helm-man-woman
-(use-package helm-elisp
-  :after helm
-  :bind ("<M-f1>"   . my/helm-for-document)
-  :custom
-  (helm-for-document-sources            ; 基本となるソースを定義
-   '(helm-source-info-elisp
-     helm-source-info-cl
-     helm-source-info-eieio))
-  :config
-  ;; man, info, apropos を串刺し検索する
-  (defun my/helm-for-document ()
-    "Preconfigured `helm' for helm-for-document."
-    (interactive)
-    (let ((default (thing-at-point 'symbol)))
-      (helm :sources
-            (nconc
-             (mapcar (lambda (func)
-                       (funcall func default))
-                     helm-apropos-function-list)
-             helm-for-document-sources)
-            :buffer "*helm for document*"))))

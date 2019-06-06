@@ -10,10 +10,7 @@
   (use-package sticky :ensure)          ; skk-sticky-keyに必要
 
   :bind
-  (("C-S-j"         . ignore)
-   ("C-:"           . ignore)
-   ("<M-kanji>"     . skk-mode)
-   ("C-x C-j"       . skk-mode)
+  (("C-x C-j"       . skk-mode)
    ("C-x j"         . skk-auto-fill-mode)
    :map skk-j-mode-map
    ("S-SPC"         . skk-previous-candidate)
