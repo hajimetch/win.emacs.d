@@ -170,7 +170,7 @@
 (set-variable 'delete-old-versions   t) ; バックアップファイル削除の実行有無
 
 ;; バックアップ(xxx~)の格納ディレクトリ
-(set-variable 'backup-directory-alist '((".*" . "//Mac/Dropbox/Emacs/backups/win10")))
+(set-variable 'backup-directory-alist '((".*" . "//Mac/Dropbox/Emacs/backups/win")))
 
 ;; バッファ保存時に毎回バックアップする
 (defun my/setq-buffer-backed-up-nil (&rest _)
@@ -189,7 +189,7 @@
 
 ;; 自動保存ファイル(#xxx#)の格納ディレクトリ
 (set-variable 'auto-save-file-name-transforms
-              `((".*", (expand-file-name "//Mac/Dropbox/Emacs/backups/win10/") t)))
+              `((".*", (expand-file-name "//Mac/Dropbox/Emacs/backups/win/") t)))
 
 
 ;;; 自動保存のリスト(~/.emacs.d/auto-save-list/.saves-xxx)
