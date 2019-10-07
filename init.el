@@ -1,4 +1,4 @@
-;;;; Modified: 2019-10-06
+;;;; Modified: 2019-10-13
 ;;; package manager
 (require 'package)
 (add-to-list 'package-archives
@@ -194,7 +194,7 @@
 
 ;;; 自動保存のリスト(~/.emacs.d/auto-save-list/.saves-xxx)
 ;; 下記プレフィックスで作成する
-(set-variable 'auto-save-list-file-prefix "//Mac/Dropbox/Emacs/backups/mac/saves-")
+(set-variable 'auto-save-list-file-prefix "//Mac/Dropbox/Emacs/backups/win/saves-")
 
 
 ;;; ロックファイル(.#xxx)
