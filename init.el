@@ -1,4 +1,4 @@
-;;;; Modified: 2019-11-02
+;;;; Modified: 2020-01-14
 ;;; package manager
 (require 'package)
 (add-to-list 'package-archives
@@ -878,16 +878,13 @@
         ("C-c C-f"  . py-yapf-buffer))
   :hook (python-mode . py-yapf-enable-on-save))
 
-;; jedi
-(use-package company-jedi :no-require :demand :ensure
-  :after company
-  :init (use-package jedi-core :ensure)
-  :hook (python-mode . jedi:setup)
-  :config
-  (set-variable 'jedi:complete-on-dot t)
-  (set-variable 'jedi:use-shortcuts t)
-  (add-to-list 'company-backends 'company-jedi)
-  (unbind-key "C-c ." jedi-mode-map))
+;; elpy
+(use-package elpy :ensure :demand
+  :init (advice-add 'python-mode :before 'elpy-enable)
+  :bind
+  (:map python-mode-map
+        ("C-c d"    . elpy-doc)
+        ("C-c q"    . elpy-shell-send-region-or-buffer)))
 
 
 ;;; flycheck
